@@ -19,7 +19,10 @@ Pod::Spec.new do |s|
 
   s.subspec 'Core' do |ss|
     ss.source_files = 'Source/Classes/Core/*.{h,m}'
-    ss.dependency   'SDWebImage'
+    # SDWebImage
+    # 3.7.2 contains bugs downloading local files
+    # https://github.com/rs/SDWebImage/issues/1109
+    ss.dependency   'SDWebImage', '~> 3.7', '!= 3.7.2'
     ss.dependency   'DZNEmptyDataSet'
     ss.dependency   'MBProgressHUD'
 
